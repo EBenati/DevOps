@@ -1,0 +1,30 @@
+name: Continuous Delivery
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  delivery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Simulando Continuous Delivery
+        uses: actions/upload-artifact@v4
+        with:
+          name: projeto.zip
+          path: |
+            '**.py'
+            README.md            
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: delivery
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+           name: projeto.zip
+      - name: Display Structure Of Downloaded Files
+        run: ls -R
