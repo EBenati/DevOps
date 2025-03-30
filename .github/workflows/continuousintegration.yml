@@ -42,5 +42,5 @@ jobs:
         - name: Send Teams Notification
           run: |
             curl -H "Content-Type: application/json" \
-                 -d "{\"title\": \"New Pull Request\", \"text\": \"A new PR titled '${{ github.event.pull_request.title }}' was opened by ${{ github.event.pull_request.user.login }} in ${{ github.repository }}. [Check it out](${{ github.event.pull_request.html_url }})!\"}" \
+                 -d "{\"title\": \"Novo Pull Request\", \"text\": \"PR '${{ github.event.pull_request.title }}' foi criado por ${{ github.event.pull_request.user.login }} in ${{ github.repository }}. [Ver](${{ github.event.pull_request.html_url }})!\"}" \
                  "${{ secrets.TEAMS_WEBHOOK }}"
