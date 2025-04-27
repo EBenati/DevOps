@@ -11,7 +11,7 @@ def test_root_msg(): # testa se a mensagem enviado é "Hello: world"
     response = client.get("/")
     assert response.json() == {"Hello": "World"}
 
-def test_teste1_msg(): # testa se o endpoint /teste1 está ok
+def test_teste1_status_endpoint(): # testa se o endpoint /teste1 está ok
     response = client.get("/teste1")
     assert response.status_code == 200
 
